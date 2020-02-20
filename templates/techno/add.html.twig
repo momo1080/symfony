@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div>
+        <h2>Ajouter une techno</h2>
+    </div>
+    <div>
+        {{ form_start(form, { attr:{ novalidate:'novalidate' } } ) }}
+           <div>
+                {{ form_errors(form) }}
+           </div>
+            <div>
+                {{ form_errors(form.name) }}
+                {{ form_label(form.name, 'Nom de la techno') }}
+                {{  form_widget(form.name) }}
+            </div>
+             <div>
+                {{ form_errors(form.logo) }}
+                {{ form_label(form.logo, 'téléverser le fichier') }}
+                {{  form_widget(form.logo) }}
+            </div>
+            <div>               
+                {{ form_widget(form._token) }}
+                {{  form_widget(form.ajouter, { label: 'Ajouter' }) }}
+            </div>
+
+        {{ form_end(form,{'render_rest': false}) }}
+    </div>
+{% endblock %}

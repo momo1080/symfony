@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+   <div>
+      <a href="{{ path('projet_add') }}" >Ajouter un projet</a>
+   </div>
+    <table>
+      <tr>
+         <th>Titre</th>
+         <th>Date</th>
+         <th>Action</th>
+      </tr>
+      {% for projet in projets %}
+         <tr>
+            <td>{{ projet.name }}</td>
+            <td>{{ projet.date| date('d/m/Y') }}</td>
+            <td><a href="{{ path('projet_delete', {id: projet.id}) }}" >Supprimer</a> <a href="{{ path('projet_edit', {id: projet.id}) }}" >Modifier</a></td>
+         </tr>
+         
+      {% endfor %}
+    </table>
+{% endblock %}

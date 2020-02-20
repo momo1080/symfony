@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div>
+        <h2>Modifier une techno</h2>
+    </div>
+    <div>
+        <div>
+        {{ form_start(form, { attr:{ novalidate:'novalidate' } } ) }}
+            <div>
+                {{ form_errors(form) }}
+            </div>
+            <div>
+                {{ form_label(form.name, 'Nom de la techno') }}
+                {{  form_widget(form.name) }}
+            </div>
+            <img src="{{ asset('/uploads/logo/' ~ form.vars.data.logo) }}" alt"">
+            <div>
+                {{ form_errors(form.logo) }}
+                {{ form_label(form.logo, 'téléverser le fichier') }}
+                {{  form_widget(form.logo) }}
+            </div>
+            <div>               
+                {{ form_widget(form._token) }}
+                {{  form_widget(form.ajouter, { label: 'Modifier' }) }}
+            </div>
+
+        {{ form_end(form,{'render_rest': false}) }}
+    </div>
+    </div>
+{% endblock %}
